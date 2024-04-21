@@ -78,6 +78,8 @@ Open `http://localhost:8000` in your browser to access QuadraLearn.
 
 - [Susanto dkk. 2021. _Matematika untuk SMA/SMK Kelas X_. Pusat Kurikulum dan Perbukuan Badan Penelitian dan Pengembangan dan Perbukuan: Jakarta](https://static.buku.kemdikbud.go.id/content/pdf/bukuteks/kurikulum21/Matematika-BS-KLS-X.pdf)
 
+- [Yanti, Nur Fitri. 2024. Media Pembelajaran Interaktif Berbasis Web Pada Materi Fungsi Kuadrat Kelas X Dengan Metode Tutorial. _Usulan Penyusunan Skripsi_. Banjarmasin: Universitas Lambung Mangkurat.](https://github.com/404NotFoundIndonesia/quadra-learn/blob/main/docs/proposal-skripsi.pdf)
+
 ## License
 
 __QuadraLearn__ is open-sourced software licensed under the [MIT license](https://github.com/404NotFoundIndonesia/quadra-learn?tab=MIT-1-ov-file).
