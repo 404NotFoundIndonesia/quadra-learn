@@ -1,66 +1,83 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<div align="center">
+    <p>
+        <a href="https://github.com/404NotFoundIndonesia/" target="_blank">
+            <img src="https://avatars.githubusercontent.com/u/87377917?s=200&v=4" width="200" alt="404NFID Logo">
+        </a>
+    </p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+ [![GitHub Stars](https://img.shields.io/github/stars/404NotFoundIndonesia/quadra-learn.svg)](https://github.com/404NotFoundIndonesia/quadra-learn/stargazers)
+ [![GitHub license](https://img.shields.io/github/license/404NotFoundIndonesia/quadra-learn)](https://github.com/404NotFoundIndonesia/quadra-learn/blob/main/LICENSE)
+ 
+</div>
 
-## About Laravel
+# QuadraLearn
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+__QuadraLearn__ is a web-based interactive learning media for quadratic function topic in grade X using the tutorial method (_Media Pembelajaran Interaktif Berbasis Web Pada Materi Fungsi Kuadrat Kelas X Dengan Metode Tutorial_).
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Background
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+In the field of Education, technology has a significant impact on knowledge, where students are taught about natural phenomena and facts through this technology (Maritsa et al., 2021). In this regard, technology can be a very effective and efficient medium to use as support in the learning process to make it more engaging. In the field of Education, particularly in the subject of mathematics, technology can play a role in helping students become more active and creative during the learning process.
 
-## Learning Laravel
+The subject of Mathematics serves as the foundation for all knowledge, development, and technology. Therefore, mathematics is a compulsory subject in both schools and universities. Learning mathematics is inseparable from the issue of application. In learning mathematics, students need to develop and master critical thinking skills when facing various problems. They must be able to think logically when making decisions about what they believe and do (Shara et al., 2019).
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+One of the topics in mathematics education is quadratic function. In this topic, students are required to determine the optimum value of quadratic functions, sketch quadratic function graphs, explain the influence of the coefficient x2 on quadratic functions, identify the axis of symmetry of quadratic function graphs, explain the relationship between the discriminant value and the intersection points of quadratic functions with the x-axis, determine quadratic functions if their graphs are known, present contextual problems in the form of quadratic functions, and solve them. Based on research at SMA Negeri 1 Ulu Moro'o, it was found that students still have difficulty understanding quadratic function materials, from determining quadratic function graphs, identifying quadratic function graphs, to determining quadratic functions if their graphs are known. Therefore, creating mathematics learning media with quadratic function material can help students understand the material more easily (Gulo et al., 2021).
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+Learning media can be considered as crucial in the learning process. It helps teachers deliver the material and makes it easier for students to understand. The use of media in learning processes can stimulate curiosity, student interest, and learning outcomes. It also provides motivation and stimulation in learning activities. Learning media has evolved rapidly, especially technology-based learning media. Various learning media are now packaged in a modern and unique way, both in hardware such as pocket books, student worksheets, and in software such as applications or websites packaged in an interactive format.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+The development of interactive learning media can help students understand the taught material because it involves two-way communication. Therefore, interactive learning media can be developed through the web. Web-based learning is a learning method that utilizes internet technology, where web pages provide learning materials that can be accessed anytime and anywhere by students. Thus, the use of interactive web-based learning media can reduce static environments, create effective and engaging interactive learning processes, and stimulate student motivation (Munawarah et al., 2021).
 
-## Laravel Sponsors
+One of the methods used in interactive learning media is the tutorial method. The tutorial method involves delivering the material in a tutorial manner. This method has the characteristics of being programmed into the computer as instructional material, allowing students to respond while learning specific material, evaluating students' answers by the learning program on the computer, and requiring students to repeat or continue to the next learning activity if they do not understand the previous material (Kustandi & Sutjipto, 2013) (Rafianti et al., 2018).
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+Based on the background above, it is evident that technology plays a crucial role in education, especially in mathematics subjects, where technology can be instrumental in quadratic function topics, which often pose difficulties for students. By using interactive learning media and employing the tutorial method for quadratic functions, researchers hope that students will be able to understand quadratic functions more easily because the material is structured within the learning media. Therefore, the researcher intends to conduct research on "Media Pembelajaran Interaktif Berbasis Web Pada Materi Fungsi Kuadrat Kelas X Dengan Metode Tutorial" or __QuadraLearn__.
 
-### Premium Partners
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+## Technical Specifications
 
-## Contributing
+- __Backend__: PHP 8.3, Laravel 11.0
+- __Database__: MySQL Community Server or SQLite
+- __Frontend__: HTML, CSS, JavaScript
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## Get Started
 
-## Code of Conduct
+### Get the Source Code
+Of course, you need to put this code on your computer first. There are two ways to do this: by __downloading the project zip file__ or __by using Git (recommended)__.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+1. **Download the Project Zip**
 
-## Security Vulnerabilities
+    You can click on [this link](https://github.com/404NotFoundIndonesia/quadra-learn/archive/refs/heads/main.zip) to download the zip file of this project.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+2. **Git Clone**
+
+    Make sure that you have installed git. Open the directory where you want to place the source code in the terminal. Then, run the following command:
+    ```shell
+    git clone git@github.com:404NotFoundIndonesia/quadra-learn.git
+    ```
+
+### Install Dependencies
+
+Make sure __this project is open in your command line interface__. To confirm your current active directory in the terminal, use the following command: 
+```shell
+pwd
+```
+
+To install backend dependencies, use the following command:
+```shell
+composer install
+```
+
+### How to Run
+
+To run the backend server, use the following command:
+```shell
+php artisan serve
+```
+
+Open `http://localhost:8000` in your browser to access QuadraLearn.
+
+## Reference
+
+- [Susanto dkk. 2021. _Matematika untuk SMA/SMK Kelas X_. Pusat Kurikulum dan Perbukuan Badan Penelitian dan Pengembangan dan Perbukuan: Jakarta](https://static.buku.kemdikbud.go.id/content/pdf/bukuteks/kurikulum21/Matematika-BS-KLS-X.pdf)
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+__QuadraLearn__ is open-sourced software licensed under the [MIT license](https://github.com/404NotFoundIndonesia/quadra-learn?tab=MIT-1-ov-file).
