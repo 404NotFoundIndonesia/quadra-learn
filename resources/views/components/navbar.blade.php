@@ -10,16 +10,16 @@ id="layout-navbar">
 
     <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
     <!-- Search -->
-    <div class="navbar-nav align-items-center">
+    {{-- <div class="navbar-nav align-items-center">
         <div class="nav-item d-flex align-items-center">
-        <i class="bx bx-search fs-4 lh-0"></i>
-        <input
-            type="text"
-            class="form-control border-0 shadow-none ps-1 ps-sm-2"
-            placeholder="Search..."
-            aria-label="Search..." />
+            <i class="bx bx-search fs-4 lh-0"></i>
+            <input
+                type="text"
+                class="form-control border-0 shadow-none ps-1 ps-sm-2"
+                placeholder="Search..."
+                aria-label="Search..." />
         </div>
-    </div>
+    </div> --}}
     <!-- /Search -->
 
     <ul class="navbar-nav flex-row align-items-center ms-auto">
@@ -27,11 +27,11 @@ id="layout-navbar">
         <li class="nav-item lh-1 me-3">
         <a
             class="github-button"
-            href="https://github.com/themeselection/sneat-html-admin-template-free"
+            href="https://github.com/404NotFoundIndonesia/quadra-learn"
             data-icon="octicon-star"
             data-size="large"
             data-show-count="true"
-            aria-label="Star themeselection/sneat-html-admin-template-free on GitHub"
+            aria-label="Star 404NotFoundIndonesia/quadra-learn on GitHub"
             >Star</a
         >
         </li>
@@ -40,7 +40,7 @@ id="layout-navbar">
         <li class="nav-item navbar-dropdown dropdown-user dropdown">
         <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
             <div class="avatar avatar-online">
-            <img src="/assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
+                <img src="{{ auth()->user()->avatar_url }}" alt class="w-px-40 h-px-40 rounded-circle" />
             </div>
         </a>
         <ul class="dropdown-menu dropdown-menu-end">
@@ -49,12 +49,12 @@ id="layout-navbar">
                 <div class="d-flex">
                 <div class="flex-shrink-0 me-3">
                     <div class="avatar avatar-online">
-                    <img src="/assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
+                        <img src="{{ auth()->user()->avatar_url }}" alt class="w-px-40 h-px-40 rounded-circle" />
                     </div>
                 </div>
                 <div class="flex-grow-1">
-                    <span class="fw-medium d-block">John Doe</span>
-                    <small class="text-muted">Admin</small>
+                    <span class="fw-medium d-block">{{ auth()->user()->name }}</span>
+                    <small class="text-muted">{{ ucfirst(\App\Enum\Role::getIndonesianRole(auth()->user()->role)) }}</small>
                 </div>
                 </div>
             </a>
@@ -87,10 +87,11 @@ id="layout-navbar">
             <div class="dropdown-divider"></div>
             </li>
             <li>
-            <a class="dropdown-item" href="javascript:void(0);">
-                <i class="bx bx-power-off me-2"></i>
-                <span class="align-middle">Log Out</span>
-            </a>
+                <form action="{{ route('auth.sign-out') }}" method="post" id="logout-menu-form-on-nav">@csrf</form>
+                <a class="dropdown-item" href="javascript:void(0);" id="logout-menu-button-on-nav">
+                    <i class="bx bx-power-off me-2"></i>
+                    <span class="align-middle">Keluar</span>
+                </a>
             </li>
         </ul>
         </li>

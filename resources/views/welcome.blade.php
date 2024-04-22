@@ -94,7 +94,7 @@
 
         <!-- navbar button: Start -->
         <li>
-          <a href="/login" class="btn btn-primary"><span class="tf-icons bx bx-user me-md-1"></span><span class="d-none d-md-block">Masuk</span></a>
+          <a href="{{ route('login') }}" class="btn btn-primary"><span class="tf-icons bx bx-user me-md-1"></span><span class="d-none d-md-block">Masuk</span></a>
         </li>
         <!-- navbar button: End -->
       </ul>
@@ -122,11 +122,11 @@
           <div class="landing-hero-btn d-inline-block position-relative">
             <span class="hero-btn-item position-absolute d-none d-md-flex text-heading">Yuk gabung
               <img src="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/front-pages/icons/Join-community-arrow.png" alt="Join community arrow" class="scaleX-n1-rtl" /></span>
-            <a href="#landingPricing" class="btn btn-primary">Mulai belajar!</a>
+            <a href="{{ route('dashboard') }}" class="btn btn-primary">Mulai belajar!</a>
           </div>
         </div>
         <div id="heroDashboardAnimation" class="hero-animation-img">
-          <a href="/" target="_blank">
+          <a href="{{ route('dashboard') }}" target="_blank">
             <div id="heroAnimationImg" class="position-relative hero-dashboard-img">
               <img src="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/front-pages/landing-page/hero-dashboard-light.png" alt="hero dashboard" class="animation-img" data-app-light-img="front-pages/landing-page/hero-dashboard-light.png" data-app-dark-img="front-pages/landing-page/hero-dashboard-dark.png" />
               <img src="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/front-pages/landing-page/hero-elements-light.png" alt="hero elements" class="position-absolute hero-elements-img animation-img top-0 start-0" data-app-light-img="front-pages/landing-page/hero-elements-light.png" data-app-dark-img="front-pages/landing-page/hero-elements-dark.png" />
@@ -251,7 +251,7 @@
         <div class="col-lg-6 text-center text-lg-start">
           <h6 class="h2 text-primary fw-bold mb-1">Siap Belajar Fungsi Kuadrat?</h6>
           <p class="fw-medium mb-4">Kalau kamu sudah punya akun, langsung masuk aja.</p>
-          <a href="/login" class="btn btn-primary">Masuk</a>
+          <a href="{{ route('login') }}" class="btn btn-primary">Masuk</a>
         </div>
         <div class="col-lg-6 pt-lg-5 text-center text-lg-end">
           <img src="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/front-pages/landing-page/cta-dashboard.png" alt="cta dashboard" class="img-fluid" />
