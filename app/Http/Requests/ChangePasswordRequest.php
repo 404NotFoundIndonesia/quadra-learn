@@ -11,7 +11,7 @@ class ChangePasswordRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return !auth()->guest();
     }
 
     /**
@@ -22,7 +22,8 @@ class ChangePasswordRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'old_password' => ['required'],
+            'password' => ['required', 'confirmed'],
         ];
     }
 }

@@ -33,6 +33,11 @@
                     <div data-i18n="Akun">Akun</div>
                 </a>
             </li>
+            <li class="menu-item {{ Route::is('profile.change-password') ? 'active' : '' }}">
+                <a href="{{ route('profile.change-password') }}" class="menu-link">
+                    <div data-i18n="Ganti Password">Ganti Password</div>
+                </a>
+            </li>
         </ul>
       </li>
 

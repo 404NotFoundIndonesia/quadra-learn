@@ -20,6 +20,8 @@ Route::middleware(['auth'])->group(function() {
     Route::get('/account', [ProfileController::class, 'account'])->name('profile.account');
     Route::post('/account', [ProfileController::class, 'accountUpdate'])->name('profile.account-update');
     Route::delete('/account', [ProfileController::class, 'accountDestroy'])->name('profile.account-destroy');
+    Route::get('/change-password', [ProfileController::class, 'changePassword'])->name('profile.change-password');
+    Route::post('/change-password', [ProfileController::class, 'changePasswordUpdate'])->name('profile.change-password-update');
 
     Route::middleware(['role:teacher'])->group(function() {
         Route::get('/students', [StudentController::class, 'index'])->name('students.index');
