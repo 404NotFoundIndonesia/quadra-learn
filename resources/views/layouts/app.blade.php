@@ -16,7 +16,7 @@
 
     <title>{{ config('app.name') }}</title>
 
-    <meta name="description" content="Tuhfah Web App" />
+    <meta name="description" content="Media Pembelajaran Interaktif Berbasis Web pada Materi Fungsi Kuadrat Kelas X dengan Metode Tutorial" />
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="{{ asset('404_Black.jpg') }}" />
