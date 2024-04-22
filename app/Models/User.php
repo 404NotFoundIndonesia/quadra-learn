@@ -5,6 +5,7 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 
 use App\Enum\Role;
+use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -13,6 +14,8 @@ use Illuminate\Notifications\Notifiable;
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
+
+    public const DEFAULT_PASSWORD = 'password';
 
     /**
      * The attributes that are mass assignable.
@@ -72,5 +75,20 @@ class User extends Authenticatable
 
     public function isTeacher(): bool {
         return !$this->isStudent();
+    }
+
+    public function scopeStudent(Builder $query) {
+        $query->where('role', Role::STUDENT->value);
+    }
+
+    public function scopeSearch(Builder $query, string|null $search) {
+        $query->when($search, function(Builder $query) use ($search) {
+            return $query->where('name', 'LIKE', $search . '%')
+                        ->orWhere('nis', $search);
+        });
+    }
+
+    public function scopeRender(Builder $query, int $size) {
+        return $query->paginate($size)->withQueryString();
     }
 }

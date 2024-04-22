@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PageController::class, 'welcome'])->name('welcome');
@@ -14,4 +15,11 @@ Route::post('/sign-out', [AuthController::class, 'signOut'])->name('auth.sign-ou
 
 Route::middleware(['auth'])->group(function() {
     Route::get('/dashboard', [PageController::class, 'dashboard'])->name('dashboard');
+
+    Route::middleware(['role:teacher'])->group(function() {
+        Route::get('/students', [StudentController::class, 'index'])->name('students.index');
+
+        Route::patch('/students/{nis}/reset-password', [StudentController::class, 'resetPassword'])->name('students.reset-password');
+        Route::delete('/students/{nis}', [StudentController::class, 'destroy'])->name('students.destroy');
+    });
 });

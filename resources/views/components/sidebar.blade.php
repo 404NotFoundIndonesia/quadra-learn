@@ -24,12 +24,20 @@
 
       @if (auth()->user()->isStudent())
 
-        
+
 
       @else
 
         <li class="menu-header small text-uppercase">
             <span class="menu-header-text">Data Master</span>
+        </li>
+
+
+        <li class="menu-item {{ Route::is('students.*') ? 'active' : '' }}">
+            <a href="{{ route('students.index') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-user"></i>
+                <div data-i18n="Siswa">Siswa</div>
+            </a>
         </li>
 
       @endif

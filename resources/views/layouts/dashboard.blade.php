@@ -39,6 +39,49 @@
 @endsection
 
 @push('script')
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+            toast.onmouseenter = Swal.stopTimer;
+            toast.onmouseleave = Swal.resumeTimer;
+        }
+    });
+
+    function confirmSubmit(e, form) {
+        e.preventDefault();
+        Swal.fire({
+            title: 'Perhatian',
+            text: 'Apakah Anda yakin?',
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonText: 'Iya, saya yakin!',
+            cancelButtonText: 'Batalkan'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                form.submit();
+            }
+        });
+
+        return false;
+    }
+</script>
+
+@session('notification')
+<script>
+    Toast.fire({
+        icon: "{{ $value['icon'] }}",
+        title: "{{ $value['title'] }}",
+        text: "{{ $value['message'] }}",
+    });
+</script>
+@endsession
+
 <script>
     document.getElementById('logout-menu-button-on-nav').addEventListener('click', function() {
         document.getElementById('logout-menu-form-on-nav').submit();
