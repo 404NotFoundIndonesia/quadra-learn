@@ -94,7 +94,14 @@
 
         <!-- navbar button: Start -->
         <li>
-          <a href="{{ route('login') }}" class="btn btn-primary"><span class="tf-icons bx bx-user me-md-1"></span><span class="d-none d-md-block">Masuk</span></a>
+            <a href="{{ route('login') }}" class="btn btn-primary">
+                <span class="tf-icons bx bx-user me-md-1"></span>
+                @guest
+                    <span class="d-none d-md-block">Masuk</span>
+                @else
+                    <span class="d-none d-md-block">{{ auth()->user()->name }}</span>
+                @endguest
+            </a>
         </li>
         <!-- navbar button: End -->
       </ul>
@@ -354,7 +361,7 @@
                     </div>
                   </div>
                   <div class="col-12">
-                    <button type="submit" class="btn btn-primary">Send inquiry</button>
+                    <button type="submit" class="btn btn-primary">Buat Akun</button>
                   </div>
                 </div>
               </form>
