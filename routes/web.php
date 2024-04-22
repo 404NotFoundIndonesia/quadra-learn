@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,6 +16,10 @@ Route::post('/sign-out', [AuthController::class, 'signOut'])->name('auth.sign-ou
 
 Route::middleware(['auth'])->group(function() {
     Route::get('/dashboard', [PageController::class, 'dashboard'])->name('dashboard');
+
+    Route::get('/account', [ProfileController::class, 'account'])->name('profile.account');
+    Route::post('/account', [ProfileController::class, 'accountUpdate'])->name('profile.account-update');
+    Route::delete('/account', [ProfileController::class, 'accountDestroy'])->name('profile.account-destroy');
 
     Route::middleware(['role:teacher'])->group(function() {
         Route::get('/students', [StudentController::class, 'index'])->name('students.index');

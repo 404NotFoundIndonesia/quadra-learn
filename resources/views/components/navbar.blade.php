@@ -63,10 +63,10 @@ id="layout-navbar" style="z-index: 100 !important">
             <div class="dropdown-divider"></div>
             </li>
             <li>
-            <a class="dropdown-item" href="#">
-                <i class="bx bx-user me-2"></i>
-                <span class="align-middle">My Profile</span>
-            </a>
+                <a class="dropdown-item" href="{{ route('profile.account') }}">
+                    <i class="bx bx-user me-2"></i>
+                    <span class="align-middle">Akun</span>
+                </a>
             </li>
             <li>
             <a class="dropdown-item" href="#">

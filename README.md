@@ -53,7 +53,7 @@ Of course, you need to put this code on your computer first. There are two ways 
     git clone git@github.com:404NotFoundIndonesia/quadra-learn.git
     ```
 
-### Install Dependencies
+### Install Dependencies and Setup
 
 Make sure __this project is open in your command line interface__. To confirm your current active directory in the terminal, use the following command: 
 ```shell
@@ -63,6 +63,11 @@ pwd
 To install backend dependencies, use the following command:
 ```shell
 composer install
+```
+
+Use the following command to connect the application to the storage:
+```shell
+php artisan storage:link
 ```
 
 ### How to Run

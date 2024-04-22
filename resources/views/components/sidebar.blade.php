@@ -22,6 +22,20 @@
         </a>
       </li>
 
+      <li class="menu-item {{ Route::is('profile.*') ? 'active open' : '' }}">
+        <a href="javascript:void(0);" class="menu-link menu-toggle">
+            <i class="menu-icon tf-icons bx bx-dock-top"></i>
+            <div data-i18n="Profil">Profil</div>
+        </a>
+        <ul class="menu-sub">
+            <li class="menu-item {{ Route::is('profile.account') ? 'active' : '' }}">
+                <a href="{{ route('profile.account') }}" class="menu-link">
+                    <div data-i18n="Akun">Akun</div>
+                </a>
+            </li>
+        </ul>
+      </li>
+
       @if (auth()->user()->isStudent())
 
 

@@ -1,9 +1,9 @@
 @extends('layouts.dashboard')
 
 @section('content')
-<div class="card">
-    <h5 class="card-header">Daftar Siswa</h5>
+<h4 class="py-3 mb-4">Siswa</h4>
 
+<div class="card">
     <div class="card-body">
         <form action="">
             <div class="row">

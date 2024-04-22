@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Storage;
 
 class User extends Authenticatable
 {
@@ -29,6 +30,7 @@ class User extends Authenticatable
         'username',
         'role',
         'nis',
+        'avatar',
     ];
 
     /**
@@ -50,8 +52,7 @@ class User extends Authenticatable
                     return asset('404_Black.jpg');
                 }
 
-                // TODO: Get from storage path!
-                return $this->avatar;
+                return asset(Storage::url($this->avatar));
             }
         );
     }
