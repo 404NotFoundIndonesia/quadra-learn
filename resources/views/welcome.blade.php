@@ -273,7 +273,7 @@
         <div class="col-lg-5">
           <div class="contact-img-box position-relative border p-2 h-100">
             <img src="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/front-pages/icons/contact-border.png" alt="contact border" class="contact-border-img position-absolute d-none d-md-block scaleX-n1-rtl" />
-            <img src="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/assets/img/front-pages/landing-page/contact-customer-service.png" alt="contact customer service" class="contact-img w-100 scaleX-n1-rtl" />
+            <img src="https://sman2cirebon.sch.id/wp-content/uploads/2020/07/unbk-715x400.jpeg" alt="anak sma" class="contact-img w-100 scaleX-n1-rtl" />
             <div class="pt-3 px-4 pb-1">
               <div class="row gy-3 gx-md-4">
                 <div class="col-md-6 col-lg-12 col-xl-6">
@@ -282,7 +282,7 @@
                     <div>
                       <p class="mb-0">Email</p>
                       <h5 class="mb-0">
-                        <a href="mailto:example@gmail.com" class="text-heading">example@gmail.com</a>
+                        <a href="mailto:404nf.oa@gmail.com" class="text-heading">404nf.oa@gmail.com</a>
                       </h5>
                     </div>
                   </div>
@@ -294,7 +294,7 @@
                     </div>
                     <div>
                       <p class="mb-0">Phone</p>
-                      <h5 class="mb-0"><a href="tel:+1234-568-963" class="text-heading">+1234 568 963</a></h5>
+                      <h5 class="mb-0"><a href="tel:+6282159142175" class="text-heading">+62 821 5914 2175</a></h5>
                     </div>
                   </div>
                 </div>
@@ -305,24 +305,53 @@
         <div class="col-lg-7">
           <div class="card">
             <div class="card-body">
-              <h4 class="mb-1">Send a message</h4>
-              <p class="mb-4">
-                If you would like to discuss anything related to payment, account, licensing,<br class="d-none d-lg-block" />
-                partnerships, or have pre-sales questions, you’re at the right place.
-              </p>
-              <form>
+              <h4 class="mb-1">Adventure starts here 🚀</h4>
+              <p class="mb-4">Ayo buat akun dan kita mulai perjalanan kita!</p>
+              <form action="{{ route('auth.sign-up') }}" method="POST">
+                @csrf
                 <div class="row g-4">
+                  <div class="col-md-12">
+                    <label class="form-label" for="contact-form-fullname">Nama Lengkap</label>
+                    <input type="text" class="form-control @error('name') is-invalid @enderror" id="contact-form-fullname" placeholder="Masukkan Nama Lengkap" name="name" />
+                    <span class="error invalid-feedback">{{ $errors->first('name') }}</span>
+                  </div>
                   <div class="col-md-6">
-                    <label class="form-label" for="contact-form-fullname">Full Name</label>
-                    <input type="text" class="form-control" id="contact-form-fullname" placeholder="john" />
+                    <label class="form-label" for="contact-form-fullname">NIS</label>
+                    <input type="text" class="form-control @error('nis') is-invalid @enderror" id="contact-form-nis" name="nis" placeholder="Masukkan NIS" />
+                    <span class="error invalid-feedback">{{ $errors->first('nis') }}</span>
                   </div>
                   <div class="col-md-6">
                     <label class="form-label" for="contact-form-email">Email</label>
-                    <input type="text" id="contact-form-email" class="form-control" placeholder="johndoe@gmail.com" />
+                    <input type="email" id="contact-form-email" class="form-control @error('email') is-invalid @enderror" placeholder="Masukkan Email" />
+                    <span class="error invalid-feedback">{{ $errors->first('email') }}</span>
                   </div>
-                  <div class="col-12">
-                    <label class="form-label" for="contact-form-message">Message</label>
-                    <textarea id="contact-form-message" class="form-control" rows="9" placeholder="Write a message"></textarea>
+                  <div class="col-md-6 form-password-toggle">
+                    <label class="form-label" for="password">Password</label>
+                    <div class="input-group input-group-merge">
+                      <input
+                        type="password"
+                        id="password"
+                        class="form-control @error('password') is-invalid @enderror"
+                        name="password"
+                        placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+                        aria-describedby="password" />
+                      <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
+                      <span class="error invalid-feedback">{{ $errors->first('password') }}</span>
+                    </div>
+                  </div>
+                  <div class="col-md-6 form-password-toggle">
+                    <label class="form-label" for="password_confirmation">Konfirmasi Password</label>
+                    <div class="input-group input-group-merge">
+                      <input
+                        type="password"
+                        id="password_confirmation"
+                        class="form-control @error('password_confirmation') is-invalid @enderror"
+                        name="password_confirmation"
+                        placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+                        aria-describedby="password_confirmation" />
+                      <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
+                      <span class="error invalid-feedback">{{ $errors->first('password_confirmation') }}</span>
+                    </div>
                   </div>
                   <div class="col-12">
                     <button type="submit" class="btn btn-primary">Send inquiry</button>
