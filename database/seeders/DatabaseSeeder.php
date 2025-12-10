@@ -15,10 +15,26 @@ class DatabaseSeeder extends Seeder
     {
         User::factory()->create([
             'name' => 'Teacher',
-            'username' => 'quadralearn',
+            'username' => 'teacher',
             'email' => 'teacher@quadralearn.com',
             'role' => \App\Enum\Role::TEACHER->value,
             'nis' => null,
+        ]);
+        
+        User::factory()->create([
+            'name' => 'Admin',
+            'username' => 'quadralearn',
+            'email' => 'admin@quadralearn.com',
+            'role' => \App\Enum\Role::ADMIN->value,
+            'nis' => null,
+        ]);
+
+        User::factory()->create([
+            'name' => 'Gibran',
+            'username' => '030318077',
+            'email' => '030318077@quadralearn.com',
+            'role' => \App\Enum\Role::STUDENT->value,
+            'nis' => '030318077',
         ]);
     }
 }
