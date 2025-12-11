@@ -8,7 +8,7 @@
     <div class="d-flex justify-content-between align-items-center py-3 mb-4">
         <div>
             <h4 class="fw-bold mb-0">
-                <span class="text-muted fw-light">Admin / Questions /</span> 
+                <span class="text-muted fw-light">Admin / Questions /</span>
                 Question #{{ $question->order }}
             </h4>
             <p class="text-muted">View question details</p>
@@ -96,7 +96,7 @@
                 </div>
                 <div class="card-body">
                     <div class="question-content">
-                        {!! $question->question !!}
+                        {!! $question->question_text !!}
                     </div>
                 </div>
             </div>
@@ -116,7 +116,7 @@
                                 </span>
                             </div>
                             <div class="flex-grow-1">
-                                {!! $option !!}
+                                {!! $option?->option_text ?? $option !!}
                             </div>
                             @if($question->answer === $key)
                                 <div class="ms-2">
@@ -227,8 +227,8 @@
                             Add Similar Question
                         </a>
                         <div class="dropdown-divider"></div>
-                        <form action="{{ route('admin.questions.destroy', $question) }}" 
-                              method="POST" 
+                        <form action="{{ route('admin.questions.destroy', $question) }}"
+                              method="POST"
                               onsubmit="return confirmSubmit(event, this)">
                             @csrf
                             @method('DELETE')
@@ -253,14 +253,14 @@
     line-height: 1.6;
 }
 
-.question-content h1, 
-.question-content h2, 
+.question-content h1,
+.question-content h2,
 .question-content h3,
-.answer-content h1, 
-.answer-content h2, 
+.answer-content h1,
+.answer-content h2,
 .answer-content h3,
-.explanation-content h1, 
-.explanation-content h2, 
+.explanation-content h1,
+.explanation-content h2,
 .explanation-content h3 {
     margin-top: 1.5rem;
     margin-bottom: 1rem;

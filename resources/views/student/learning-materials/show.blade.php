@@ -271,6 +271,7 @@
 </div>
 
 @push('script')
+<script src="{{ asset('js/quadratic-graph.js') }}"></script>
 <script>
 // Auto-fill answer field for multiple choice questions
 document.querySelectorAll('input[type="radio"]').forEach(radio => {
