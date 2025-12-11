@@ -70,38 +70,10 @@
         </li>
 
       @else
-
-        <li class="menu-header small text-uppercase">
-            <span class="menu-header-text">Data Master</span>
-        </li>
-
-        <li class="menu-item {{ Route::is('students.*') ? 'active' : '' }}">
-            <a href="{{ route('students.index') }}" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-user"></i>
-                <div data-i18n="Siswa">Siswa</div>
-            </a>
-        </li>
-
-        @if (auth()->user()->isAdmin())
-        <li class="menu-item {{ Route::is('admin.grades.*') ? 'active' : '' }}">
-            <a href="{{ route('admin.grades.index') }}" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-chalkboard"></i>
-                <div data-i18n="Kelas">Kelas</div>
-            </a>
-        </li>
-        @endif
-
         @if (auth()->user()->isAdmin())
           <!-- Admin Only Menu -->
           <li class="menu-header small text-uppercase">
-              <span class="menu-header-text">Admin Panel</span>
-          </li>
-
-          <li class="menu-item {{ Route::is('admin.dashboard') ? 'active' : '' }}">
-              <a href="{{ route('admin.dashboard') }}" class="menu-link">
-                  <i class="menu-icon tf-icons bx bx-home"></i>
-                  <div data-i18n="Dashboard Admin">Dashboard Admin</div>
-              </a>
+              <span class="menu-header-text">Data Master</span>
           </li>
 
           <li class="menu-item {{ Route::is('admin.students.*') ? 'active' : '' }}">
@@ -115,6 +87,13 @@
               <a href="{{ route('admin.teachers.index') }}" class="menu-link">
                   <i class="menu-icon tf-icons bx bx-user-check"></i>
                   <div data-i18n="Guru">Guru</div>
+              </a>
+          </li>
+
+          <li class="menu-item {{ Route::is('admin.grades.*') ? 'active' : '' }}">
+              <a href="{{ route('admin.grades.index') }}" class="menu-link">
+                  <i class="menu-icon tf-icons bx bx-chalkboard"></i>
+                  <div data-i18n="Kelas">Kelas</div>
               </a>
           </li>
 

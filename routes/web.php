@@ -31,16 +31,16 @@ Route::middleware(['auth'])->group(function() {
     });
 
     // Student routes
-    Route::middleware(['role:student'])->prefix('student')->name('student.')->group(function() {
-        Route::get('/', [App\Http\Controllers\Student\DashboardController::class, 'index'])->name('dashboard');
-        
+    Route::middleware(['role:student'])->prefix('s')->name('student.')->group(function() {
+        Route::get('/dashboard', [App\Http\Controllers\Student\DashboardController::class, 'index'])->name('dashboard');
+
         Route::get('learning-materials/{learningMaterial}', [App\Http\Controllers\Student\LearningMaterialController::class, 'show'])->name('learning-materials.show');
         Route::post('learning-materials/{learningMaterial}/questions/{question}/answer', [App\Http\Controllers\Student\LearningMaterialController::class, 'submitAnswer'])->name('learning-materials.submit-answer');
     });
 
     // Admin routes
     Route::middleware(['role:admin'])->prefix('a')->name('admin.')->group(function() {
-        Route::get('/', [App\Http\Controllers\Admin\AdminController::class, 'dashboard'])->name('dashboard');
+        Route::get('/dashboard', [App\Http\Controllers\Admin\AdminController::class, 'dashboard'])->name('dashboard');
 
         Route::resource('learning-materials', App\Http\Controllers\Admin\LearningMaterialController::class);
         Route::delete('attachments/{attachment}', [App\Http\Controllers\Admin\LearningMaterialController::class, 'deleteAttachment'])->name('attachments.destroy');

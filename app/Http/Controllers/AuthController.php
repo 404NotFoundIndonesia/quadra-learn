@@ -33,7 +33,15 @@ class AuthController extends Controller
         $user = Auth::getProvider()->retrieveByCredentials($credential);
         Auth::login($user);
 
-        return redirect()->route('dashboard');
+        $route = 'dashboard';
+
+        if ($user->isAdmin()) {
+            $route = 'admin.dashboard';
+        } elseif ($user->isStudent()) {
+            $route = 'student.dashboard';
+        }
+
+        return redirect()->route($route);
     }
 
     public function signUp(SignUpRequest $request): RedirectResponse {
