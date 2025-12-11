@@ -53,4 +53,9 @@ class Question extends Model
     {
         return $query->where('type', 'free_text');
     }
+
+    public function studentAnswers()
+    {
+        return $this->hasMany(StudentAnswer::class);
+    }
 }

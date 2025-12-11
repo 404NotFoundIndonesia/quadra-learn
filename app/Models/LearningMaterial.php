@@ -52,4 +52,9 @@ class LearningMaterial extends Model
     {
         return $query->orderBy('order');
     }
+
+    public function studentProgress()
+    {
+        return $this->hasMany(StudentProgress::class);
+    }
 }

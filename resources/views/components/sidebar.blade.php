@@ -15,12 +15,28 @@
 
     <ul class="menu-inner py-1">
       <!-- Dashboards -->
-      <li class="menu-item {{ Route::is('dashboard') ? 'active' : '' }}">
-        <a href="{{ route('dashboard') }}" class="menu-link">
-          <i class="menu-icon tf-icons bx bx-home-circle"></i>
-          <div data-i18n="Basic">Dashboard</div>
-        </a>
-      </li>
+      @if(auth()->user()->isStudent())
+        <li class="menu-item {{ Route::is('student.dashboard') ? 'active' : '' }}">
+          <a href="{{ route('student.dashboard') }}" class="menu-link">
+            <i class="menu-icon tf-icons bx bx-home-circle"></i>
+            <div data-i18n="Dashboard">Dashboard</div>
+          </a>
+        </li>
+      @elseif(auth()->user()->isAdmin())
+        <li class="menu-item {{ Route::is('admin.dashboard') ? 'active' : '' }}">
+          <a href="{{ route('admin.dashboard') }}" class="menu-link">
+            <i class="menu-icon tf-icons bx bx-home-circle"></i>
+            <div data-i18n="Dashboard">Dashboard</div>
+          </a>
+        </li>
+      @else
+        <li class="menu-item {{ Route::is('dashboard') ? 'active' : '' }}">
+          <a href="{{ route('dashboard') }}" class="menu-link">
+            <i class="menu-icon tf-icons bx bx-home-circle"></i>
+            <div data-i18n="Dashboard">Dashboard</div>
+          </a>
+        </li>
+      @endif
 
       <li class="menu-item {{ Route::is('profile.*') ? 'active open' : '' }}">
         <a href="javascript:void(0);" class="menu-link menu-toggle">
@@ -42,8 +58,16 @@
       </li>
 
       @if (auth()->user()->isStudent())
+        <li class="menu-header small text-uppercase">
+            <span class="menu-header-text">Pembelajaran</span>
+        </li>
 
-
+        <li class="menu-item {{ Route::is('student.dashboard') ? 'active' : '' }}">
+            <a href="{{ route('student.dashboard') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-book-reader"></i>
+                <div data-i18n="Materi Pembelajaran">Materi Pembelajaran</div>
+            </a>
+        </li>
 
       @else
 

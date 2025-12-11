@@ -131,4 +131,14 @@ class User extends Authenticatable
     public function scopeTeacher(Builder $query) {
         return $query->where('role', Role::TEACHER->value);
     }
+
+    public function studentProgress(): HasMany
+    {
+        return $this->hasMany(StudentProgress::class);
+    }
+
+    public function studentAnswers(): HasMany
+    {
+        return $this->hasMany(StudentAnswer::class);
+    }
 }
