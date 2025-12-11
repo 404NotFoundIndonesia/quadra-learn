@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
             'role' => \App\Enum\Role::TEACHER->value,
             'nis' => null,
         ]);
-        
+
         User::factory()->create([
             'name' => 'Admin',
             'username' => 'quadralearn',
@@ -35,6 +35,12 @@ class DatabaseSeeder extends Seeder
             'email' => '030318077@quadralearn.com',
             'role' => \App\Enum\Role::STUDENT->value,
             'nis' => '030318077',
+        ]);
+
+        $this->call([
+            GradeSeeder::class,
+            LearningMaterialSeeder::class,
+            QuestionSeeder::class,
         ]);
     }
 }
