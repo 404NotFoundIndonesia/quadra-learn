@@ -291,20 +291,46 @@ document.addEventListener('DOMContentLoaded', function() {
     typeSelect.addEventListener('change', toggleSections);
     
     // Math symbol insertion
+    let lastFocusedTextarea = document.getElementById('question_text'); // Default to question text
+    
+    // Track the last focused textarea
+    document.querySelectorAll('textarea').forEach(textarea => {
+        textarea.addEventListener('focus', function() {
+            lastFocusedTextarea = this;
+        });
+    });
+    
     document.querySelectorAll('.math-symbol').forEach(button => {
         button.addEventListener('click', function() {
             const symbol = this.dataset.symbol;
-            const activeElement = document.activeElement;
+            let targetElement = lastFocusedTextarea;
             
-            // Insert into currently focused textarea
-            if (activeElement && activeElement.tagName === 'TEXTAREA') {
-                const start = activeElement.selectionStart;
-                const end = activeElement.selectionEnd;
-                const text = activeElement.value;
+            // If no textarea has been focused, try to find the currently active element
+            if (!targetElement && document.activeElement && document.activeElement.tagName === 'TEXTAREA') {
+                targetElement = document.activeElement;
+            }
+            
+            // If still no target, default to question_text
+            if (!targetElement) {
+                targetElement = document.getElementById('question_text');
+            }
+            
+            if (targetElement) {
+                const start = targetElement.selectionStart || targetElement.value.length;
+                const end = targetElement.selectionEnd || targetElement.value.length;
+                const text = targetElement.value;
                 
-                activeElement.value = text.substring(0, start) + symbol + text.substring(end);
-                activeElement.selectionStart = activeElement.selectionEnd = start + symbol.length;
-                activeElement.focus();
+                targetElement.value = text.substring(0, start) + symbol + text.substring(end);
+                targetElement.selectionStart = targetElement.selectionEnd = start + symbol.length;
+                targetElement.focus();
+                
+                // Show visual feedback
+                button.classList.add('btn-success');
+                button.classList.remove('btn-outline-secondary');
+                setTimeout(() => {
+                    button.classList.remove('btn-success');
+                    button.classList.add('btn-outline-secondary');
+                }, 200);
             }
         });
     });
