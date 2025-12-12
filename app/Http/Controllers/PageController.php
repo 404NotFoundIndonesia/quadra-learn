@@ -22,7 +22,7 @@ class PageController extends Controller
             case Role::ADMIN->value:
                 return redirect()->route('admin.dashboard');
             case Role::TEACHER->value:
-                return redirect()->route('dashboard'); // Keep existing teacher dashboard for now
+                return redirect()->route('teacher.dashboard');
             case Role::STUDENT->value:
                 return redirect()->route('student.dashboard');
             default:

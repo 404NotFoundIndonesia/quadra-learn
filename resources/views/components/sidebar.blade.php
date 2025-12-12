@@ -22,6 +22,13 @@
             <div data-i18n="Dashboard">Dashboard</div>
           </a>
         </li>
+      @elseif(auth()->user()->isTeacher())
+        <li class="menu-item {{ Route::is('teacher.dashboard') ? 'active' : '' }}">
+          <a href="{{ route('teacher.dashboard') }}" class="menu-link">
+            <i class="menu-icon tf-icons bx bx-home-circle"></i>
+            <div data-i18n="Dashboard">Dashboard</div>
+          </a>
+        </li>
       @elseif(auth()->user()->isAdmin())
         <li class="menu-item {{ Route::is('admin.dashboard') ? 'active' : '' }}">
           <a href="{{ route('admin.dashboard') }}" class="menu-link">
@@ -66,6 +73,21 @@
             <a href="{{ route('student.dashboard') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-book-reader"></i>
                 <div data-i18n="Materi Pembelajaran">Materi Pembelajaran</div>
+            </a>
+        </li>
+
+      @elseif (auth()->user()->isTeacher())
+        <li class="menu-item {{ Route::is('teacher.analytics') ? 'active' : '' }}">
+            <a href="{{ route('teacher.analytics') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-bar-chart-alt"></i>
+                <div data-i18n="Analytics">Analytics</div>
+            </a>
+        </li>
+
+        <li class="menu-item {{ Route::is('teacher.classes*') ? 'active' : '' }}">
+            <a href="{{ route('teacher.classes') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-group"></i>
+                <div data-i18n="Kelas Saya">Kelas Saya</div>
             </a>
         </li>
 

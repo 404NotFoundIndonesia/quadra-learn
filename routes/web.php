@@ -38,6 +38,15 @@ Route::middleware(['auth'])->group(function() {
         Route::post('learning-materials/{learningMaterial}/questions/{question}/answer', [App\Http\Controllers\Student\LearningMaterialController::class, 'submitAnswer'])->name('learning-materials.submit-answer');
     });
 
+    // Teacher routes
+    Route::middleware(['role:teacher'])->prefix('t')->name('teacher.')->group(function() {
+        Route::get('/dashboard', [App\Http\Controllers\Teacher\TeacherController::class, 'dashboard'])->name('dashboard');
+        Route::get('/classes', [App\Http\Controllers\Teacher\TeacherController::class, 'classes'])->name('classes');
+        Route::get('/classes/{grade}', [App\Http\Controllers\Teacher\TeacherController::class, 'classDetail'])->name('class-detail');
+        Route::get('/students/{student}/progress', [App\Http\Controllers\Teacher\TeacherController::class, 'studentProgress'])->name('student-progress');
+        Route::get('/analytics', [App\Http\Controllers\Teacher\TeacherController::class, 'analytics'])->name('analytics');
+    });
+
     // Admin routes
     Route::middleware(['role:admin'])->prefix('a')->name('admin.')->group(function() {
         Route::get('/dashboard', [App\Http\Controllers\Admin\AdminController::class, 'dashboard'])->name('dashboard');
