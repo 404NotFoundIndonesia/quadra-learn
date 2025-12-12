@@ -121,9 +121,10 @@
                 <!-- Math Symbols & References -->
                 <div class="card mb-4">
                     <div class="card-header">
-                        <h5 class="card-title mb-0">Math Symbols & References</h5>
+                        <h5 class="card-title mb-0">References</h5>
                     </div>
                     <div class="card-body">
+                        @if(false)
                         <div class="mb-3">
                             <label class="form-label">Math Symbols (JSON format)</label>
                             <textarea class="form-control @error('math_symbols') is-invalid @enderror"
@@ -134,16 +135,52 @@
                             @enderror
                             <small class="form-text text-muted">Enter common math symbols as JSON for quick insertion</small>
                         </div>
+                        @endif
 
                         <div class="mb-3">
-                            <label class="form-label">References (JSON format)</label>
-                            <textarea class="form-control @error('references') is-invalid @enderror"
-                                      name="references" rows="3"
-                                      placeholder='["Reference 1", "Reference 2", "Reference 3"]'>{{ old('references') }}</textarea>
+                            {{-- <label class="form-label">References</label> --}}
+                            <div id="references-container">
+                                @php
+                                    $oldReferences = old('references', []);
+                                    if (is_string($oldReferences)) {
+                                        $oldReferences = json_decode($oldReferences, true) ?: [];
+                                    }
+                                @endphp
+                                @if(count($oldReferences) > 0)
+                                    @foreach($oldReferences as $index => $reference)
+                                        <div class="reference-item mb-2">
+                                            <div class="input-group">
+                                                <input type="text" class="form-control"
+                                                       name="references[]"
+                                                       value="{{ $reference }}"
+                                                       placeholder="Enter reference (e.g., Author Name. Title. Publisher, Year)">
+                                                <button type="button" class="btn btn-outline-danger remove-reference">
+                                                    <i class="bx bx-trash"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                @else
+                                    <div class="reference-item mb-2">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control"
+                                                   name="references[]"
+                                                   placeholder="Enter reference (e.g., Author Name. Title. Publisher, Year)">
+                                            <button type="button" class="btn btn-outline-danger remove-reference">
+                                                <i class="bx bx-trash"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                @endif
+                            </div>
+                            <button type="button" class="btn btn-outline-primary btn-sm" id="add-reference">
+                                <i class="bx bx-plus me-1"></i>
+                                Add Reference
+                            </button>
                             @error('references')
-                                <div class="invalid-feedback">{{ $message }}</div>
+                                <div class="text-danger mt-1">{{ $message }}</div>
                             @enderror
-                            <small class="form-text text-muted">List of references for this material</small>
+                            <small class="form-text text-muted mt-2">Add academic or educational references for this learning material</small>
                         </div>
                     </div>
                 </div>
@@ -594,6 +631,50 @@ console.log('AKU RINDU PADA DIRIMU')
 // Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
     console.log('AKU RINDU PADA DIRIMU')
+
+    // References management
+    function initializeReferences() {
+        // Add reference functionality
+        document.getElementById('add-reference').addEventListener('click', function() {
+            const container = document.getElementById('references-container');
+            const newItem = document.createElement('div');
+            newItem.className = 'reference-item mb-2';
+            newItem.innerHTML = `
+                <div class="input-group">
+                    <input type="text" class="form-control"
+                           name="references[]"
+                           placeholder="Enter reference (e.g., Author Name. Title. Publisher, Year)">
+                    <button type="button" class="btn btn-outline-danger remove-reference">
+                        <i class="bx bx-trash"></i>
+                    </button>
+                </div>
+            `;
+            container.appendChild(newItem);
+
+            // Focus on the new input
+            newItem.querySelector('input').focus();
+        });
+
+        // Remove reference functionality (event delegation)
+        document.getElementById('references-container').addEventListener('click', function(e) {
+            if (e.target.closest('.remove-reference')) {
+                const referenceItem = e.target.closest('.reference-item');
+                const container = document.getElementById('references-container');
+
+                // Don't allow removing the last item, ensure at least one remains
+                if (container.children.length > 1) {
+                    referenceItem.remove();
+                } else {
+                    // Clear the input instead of removing
+                    referenceItem.querySelector('input').value = '';
+                }
+            }
+        });
+    }
+
+    // Initialize references
+    initializeReferences();
+
     // Auto-generate slug from title
     const titleInput = document.getElementById('title');
 
